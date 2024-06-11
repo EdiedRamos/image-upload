@@ -43,7 +43,7 @@ export const Uploader = () => {
       <section {...getRootProps()}>
         <input {...getInputProps()} />
         <div
-          className={`w-[540px] h-[400px] p-3  rounded-lg shadow-lg ${
+          className={`w-full md:w-[540px] h-[400px] p-3  rounded-lg shadow-lg mx-auto ${
             isDragActive
               ? "bg-slate-100 dark:bg-slate-800"
               : "bg-cc-white dark:bg-cc-midnight-blue"
