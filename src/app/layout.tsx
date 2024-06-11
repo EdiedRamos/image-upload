@@ -19,10 +19,10 @@ export default function RootLayout({
   return (
     <html id="root-tag" lang="en">
       <body
-        className={`bg-cc-ghost-white dark:bg-cc-eerie-black ${inter.className}`}
+        className={`bg-cc-ghost-white dark:bg-cc-eerie-black ${inter.className} min-h-screen flex flex-col`}
       >
         <Header />
-        <main>{children}</main>
+        <main className="flex flex-grow">{children}</main>
       </body>
     </html>
   );
