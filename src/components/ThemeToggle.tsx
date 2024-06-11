@@ -49,8 +49,15 @@ export const ThemeToggle = () => {
   }, []);
 
   return (
-    <button onClick={handleTheme} className="border-2 rounded-lg p-3">
-      {theme === "light" ? <Moon /> : <Sun />}
+    <button
+      onClick={handleTheme}
+      className="border-[1px] dark:border-cc-outer-space-light bg-cc-white dark:bg-cc-outer-space rounded-lg p-2"
+    >
+      {theme === "light" ? (
+        <Moon className="text-cc-outer-space" />
+      ) : (
+        <Sun className="text-white" />
+      )}
     </button>
   );
 };

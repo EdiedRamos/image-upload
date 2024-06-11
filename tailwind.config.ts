@@ -9,6 +9,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "cc-royal-blue": "#3662E3",
+        "cc-very-light-azure": "#C2DAF9",
+        "cc-eerie-black": "#121826",
+        "cc-platinum": "#E5E7EB",
+        "cc-white": "#FFFFFF",
+        "cc-ghost-white": "#F9FAFB",
+        "cc-midnight-blue": "#212936",
+        "cc-outer-space": "#4D5562",
+        "cc-outer-space-light": "#6c7484",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
