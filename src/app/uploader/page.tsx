@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function UploaderPage() {
   return (
-    <div className="my-20 mx-4">
+    <div className="flex justify-center my-20">
       <Uploader />
     </div>
   );
