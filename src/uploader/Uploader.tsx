@@ -11,7 +11,7 @@ export const Uploader = () => {
             Drag & drop file or{" "}
             <span className="text-cc-royal-blue">browse files</span>
           </p>
-          <p className="mt-2 dark:text-cc-outer-space-light text-sm">
+          <p className="mt-2 dark:text-cc-platinum text-sm">
             JPG, PNG or GIF - Max fle size 2MB
           </p>
         </div>
