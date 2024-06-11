@@ -18,7 +18,7 @@ const config: Config = {
         "cc-ghost-white": "#F9FAFB",
         "cc-midnight-blue": "#212936",
         "cc-outer-space": "#4D5562",
-        "cc-outer-space-light": "#6c7484",
+        "cc-outer-space-light": "#454d5c",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
