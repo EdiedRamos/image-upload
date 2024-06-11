@@ -2,23 +2,35 @@
 
 import "react-toastify/dist/ReactToastify.css";
 
-import { type FileRejection, useDropzone } from "react-dropzone";
-import React, { useCallback } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import { Exit } from "@/images";
+import { useCallback } from "react";
+import { useDropzone } from "react-dropzone";
+
+function hasFiles(files: File[]): boolean {
+  if (files.length > 0) return true;
+  toast.error("This file type is not allowed");
+  return false;
+}
+
+function hasCorrectSize(file: File): boolean {
+  const MAX_SIZE = 1024 * 1024 * 2;
+  if (file.size <= MAX_SIZE) return true;
+  toast.info("This file size exceeded 2MB");
+  return false;
+}
 
 export const Uploader = () => {
-  const onDrop = useCallback(
-    (acceptedFiles: File[], fileRejections: FileRejection[]) => {
-      console.log({ acceptedFiles });
-      console.log({ fileRejections });
-      if (fileRejections.length > 0) {
-        toast.error("This file type is not allowed");
-      }
-    },
-    []
-  );
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    if (!hasFiles(acceptedFiles)) return;
+
+    const [image] = acceptedFiles;
+
+    if (!hasCorrectSize(image)) return;
+
+    console.log(image);
+  }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
