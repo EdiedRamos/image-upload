@@ -38,14 +38,16 @@ function toggleTheme(theme: Theme): Theme {
 }
 
 export const ThemeToggle = () => {
-  const [theme, setTheme] = useState<Theme>(getThemeFromLS());
+  const [theme, setTheme] = useState<Theme>(DEFAULT_THEME);
 
   const handleTheme = () => {
     setTheme(toggleTheme);
   };
 
   useEffect(() => {
-    updateThemeUI(getThemeFromLS());
+    const savedTheme = getThemeFromLS();
+    updateThemeUI(savedTheme);
+    setTheme(savedTheme);
   }, []);
 
   return (
