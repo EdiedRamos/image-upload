@@ -4,7 +4,7 @@ export const Loader = () => {
       <p className="font-medium dark:text-white">
         Uploading, <span className="font-normal">plase wait..</span>
       </p>
-      <div className="text-white rounded-2 relative w-full md:w-[320px] h-2 bg-gray-200 overflow-hidden rounded-lg">
+      <div className="text-white rounded-2 relative w-full md:w-[320px] h-[6px] bg-gray-200 overflow-hidden rounded-lg">
         <div className="absolute left-0 top-0 h-full w-1/3 bg-blue-500 animate-loading-bar rounded-lg"></div>
       </div>
     </div>
