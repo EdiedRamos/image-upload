@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import React from "react";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Image Upload",
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const Main = () => {
-  return <div>page</div>;
+  redirect("/uploader");
 };
 
 export default Main;
