@@ -3,9 +3,10 @@
 import "react-toastify/dist/ReactToastify.css";
 
 import { ToastContainer, toast } from "react-toastify";
+import { useCallback, useState } from "react";
 
 import { Exit } from "@/images";
-import { useCallback } from "react";
+import { Loader } from "@/components";
 import { useDropzone } from "react-dropzone";
 
 function hasFiles(files: File[]): boolean {
@@ -22,6 +23,8 @@ function hasCorrectSize(file: File): boolean {
 }
 
 export const Uploader = () => {
+  const [isLoadingImage, setIsLoadingImage] = useState<boolean>(false);
+
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (!hasFiles(acceptedFiles)) return;
 
@@ -37,6 +40,10 @@ export const Uploader = () => {
       "image/png": [".png", ".webp", ".gif"],
     },
   });
+
+  if (isLoadingImage) {
+    return <Loader />;
+  }
 
   return (
     <>

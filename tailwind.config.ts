@@ -25,6 +25,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        "loading-bar": {
+          "0%": { transform: "translate(-100%)" },
+          "100%": { transform: "translate(300%)" },
+        },
+      },
+      animation: {
+        "loading-bar": "loading-bar 2s linear infinite",
+      },
     },
   },
   plugins: [],
