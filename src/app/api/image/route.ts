@@ -6,6 +6,8 @@ import imageService from "./upload.service";
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
+  console.log("GET IMAGE");
+
   const assetId = searchParams.get("assetId");
 
   if (!assetId) {
