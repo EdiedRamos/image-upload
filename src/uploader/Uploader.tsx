@@ -52,12 +52,12 @@ export const Uploader = () => {
           throw new Error("Error while saving the image xd");
         }
 
-        res.json();
+        return res.json();
       })
       .then((ans) => {
-        console.log("nos vamos");
-        router.push("/preview");
-        console.log(ans);
+        if (ans.assetId) {
+          router.push(`/preview/${ans.assetId}`);
+        }
       })
       .catch((error) => {
         if (error instanceof Error) {
