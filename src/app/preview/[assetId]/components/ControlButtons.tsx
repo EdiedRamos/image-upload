@@ -25,7 +25,8 @@ export const ControlButtons = ({ image }: Props) => {
       anchor.download = "image";
       anchor.href = url;
       anchor.click();
-    } catch {
+    } catch (error) {
+      console.log("request error:", error);
       toast.error("Download error");
     }
   };
