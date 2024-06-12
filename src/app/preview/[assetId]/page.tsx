@@ -42,7 +42,7 @@ const ImagePreview = async ({ params }: Props) => {
             <img alt="Loaded image" className="h-full rounded-lg" src={image} />
           </div>
         </section>
-        <ControlButtons />
+        <ControlButtons image={image} />
       </div>
       <ToastContainer theme="dark" position="bottom-left" />
     </div>

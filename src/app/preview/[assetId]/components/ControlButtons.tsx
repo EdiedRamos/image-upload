@@ -4,13 +4,31 @@ import { Download, Link } from "@/images";
 
 import { toast } from "react-toastify";
 
-export const ControlButtons = () => {
+interface Props {
+  image: string;
+}
+
+export const ControlButtons = ({ image }: Props) => {
   const handleShare = () => {
     navigator.clipboard
       .writeText(window.location.href)
       .then(() => toast.success("Link copied!"));
   };
-  const handleDownload = () => toast.success("download");
+
+  const handleDownload = async () => {
+    try {
+      const data = await fetch(image);
+      const blob = await data.blob();
+      const url = URL.createObjectURL(blob);
+
+      const anchor = document.createElement("a");
+      anchor.download = "image";
+      anchor.href = url;
+      anchor.click();
+    } catch {
+      toast.error("Download error");
+    }
+  };
 
   return (
     <div className="flex flex-wrap gap-4 justify-center">
