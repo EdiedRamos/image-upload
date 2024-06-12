@@ -5,7 +5,11 @@ import { Download, Link } from "@/images";
 import { toast } from "react-toastify";
 
 export const ControlButtons = () => {
-  const handleShare = () => toast.success("sharing");
+  const handleShare = () => {
+    navigator.clipboard
+      .writeText(window.location.href)
+      .then(() => toast.success("Link copied!"));
+  };
   const handleDownload = () => toast.success("download");
 
   return (
