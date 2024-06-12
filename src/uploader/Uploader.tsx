@@ -8,6 +8,7 @@ import { useCallback, useState } from "react";
 import { Exit } from "@/images";
 import { Loader } from "@/components";
 import { useDropzone } from "react-dropzone";
+import { useRouter } from "next/navigation";
 
 function hasFiles(files: File[]): boolean {
   if (files.length > 0) return true;
@@ -25,6 +26,8 @@ function hasCorrectSize(file: File): boolean {
 export const Uploader = () => {
   const [isLoadingImage, setIsLoadingImage] = useState<boolean>(false);
 
+  const router = useRouter();
+
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (!hasFiles(acceptedFiles)) return;
 
@@ -38,12 +41,29 @@ export const Uploader = () => {
 
     data.append("image", image);
 
+    setIsLoadingImage(true);
+
     fetch("/api/image", {
       method: "POST",
       body: data,
     })
-      .then((res) => res.json())
-      .then((ans) => console.log(ans));
+      .then((res) => {
+        if (!/^2\d{2}$/.test(res.status.toString())) {
+          throw new Error("Error while saving the image xd");
+        }
+
+        res.json();
+      })
+      .then((ans) => {
+        console.log("nos vamos");
+        router.push("/preview");
+        console.log(ans);
+      })
+      .catch((error) => {
+        if (error instanceof Error) {
+          toast.error(error.message);
+        }
+      });
 
     console.log(imageUrl);
   }, []);

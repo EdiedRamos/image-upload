@@ -1,4 +1,5 @@
 import { CustomResponse } from "@/utils";
+import { NextResponse } from "next/server";
 import cloudinary from "cloudinary";
 import imageService from "./upload.service";
 
