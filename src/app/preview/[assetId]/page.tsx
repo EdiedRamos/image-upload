@@ -19,6 +19,7 @@ export const metadata = {
 };
 
 async function loadImage(assetId: string): Promise<string | undefined> {
+  console.log("ASSET ID", assetId);
   try {
     const request = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/image?assetId=${assetId}`
