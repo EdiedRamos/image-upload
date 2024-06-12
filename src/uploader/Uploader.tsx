@@ -32,7 +32,20 @@ export const Uploader = () => {
 
     if (!hasCorrectSize(image)) return;
 
-    console.log(image);
+    const imageUrl = URL.createObjectURL(image);
+
+    const data = new FormData();
+
+    data.append("image", image);
+
+    fetch("/api/image", {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((ans) => console.log(ans));
+
+    console.log(imageUrl);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
