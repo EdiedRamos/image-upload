@@ -31,7 +31,7 @@ const ImagePreview = async ({ params }: Props) => {
     <div className="flex flex-grow items-center justify-center p-10">
       <div className="flex flex-col gap-5 justify-center items-center">
         <section
-          className={`mx-4 w-full md:w-[540px] min-h-[400px] p-3 rounded-lg shadow-lg bg-cc-white dark:bg-cc-midnight-blue `}
+          className={`flex flex-col justify-center items-center mx-4 w-full md:w-[540px] min-h-[400px] p-3 rounded-lg shadow-lg bg-cc-white dark:bg-cc-midnight-blue `}
         >
           <div className="h-full rounded-lg flex justify-center items-center flex-col gap-5">
             <img alt="Loaded image" className="h-full rounded-lg" src={image} />
