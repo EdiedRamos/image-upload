@@ -17,6 +17,7 @@ export const ControlButtons = ({ image }: Props) => {
 
   const handleDownload = async () => {
     try {
+      console.log("image url:", image);
       const data = await fetch(image);
       const blob = await data.blob();
       const url = URL.createObjectURL(blob);
