@@ -36,6 +36,8 @@ async function loadImage(assetId: string): Promise<string | undefined> {
 const ImagePreview = async ({ params }: Props) => {
   const image = await loadImage(params.assetId);
 
+  console.log("IMAGE PREVIEW", image);
+
   if (!image) notFound();
 
   return (
