@@ -27,7 +27,7 @@ async function loadImage(assetId: string): Promise<string | undefined> {
     const data = (await request.json()) as ImageResponse;
     return data.image;
   } catch (error) {
-    console.log(error);
+    console.log("LoadImageError:", error);
     return undefined;
   }
 }
