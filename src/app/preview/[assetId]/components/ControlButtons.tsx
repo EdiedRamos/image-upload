@@ -8,6 +8,11 @@ interface Props {
   image: string;
 }
 
+function setToHttps(url: string): string {
+  if (url.startsWith("https")) return url;
+  return url.replace("http", "https");
+}
+
 export const ControlButtons = ({ image }: Props) => {
   const handleShare = () => {
     navigator.clipboard
@@ -17,8 +22,7 @@ export const ControlButtons = ({ image }: Props) => {
 
   const handleDownload = async () => {
     try {
-      console.log("image url:", image);
-      const data = await fetch(image);
+      const data = await fetch(setToHttps(image));
       const blob = await data.blob();
       const url = URL.createObjectURL(blob);
 
@@ -27,7 +31,6 @@ export const ControlButtons = ({ image }: Props) => {
       anchor.href = url;
       anchor.click();
     } catch (error) {
-      console.log("request error:", error);
       toast.error("Download error");
     }
   };
