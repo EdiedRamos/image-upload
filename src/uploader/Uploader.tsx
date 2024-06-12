@@ -97,7 +97,7 @@ export const Uploader = () => {
               <span className="text-cc-royal-blue">browse files</span>
             </p>
             <p className="mt-2 dark:text-cc-platinum text-sm">
-              JPG, PNG or GIF - Max fle size 2MB
+              JPG, PNG or GIF - Max file size 2MB
             </p>
           </div>
         </div>
