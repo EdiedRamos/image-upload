@@ -35,8 +35,6 @@ export const Uploader = () => {
 
     if (!hasCorrectSize(image)) return;
 
-    const imageUrl = URL.createObjectURL(image);
-
     const data = new FormData();
 
     data.append("image", image);
@@ -64,8 +62,6 @@ export const Uploader = () => {
           toast.error(error.message);
         }
       });
-
-    console.log(imageUrl);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
