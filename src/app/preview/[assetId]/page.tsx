@@ -13,6 +13,11 @@ interface ImageResponse {
   image: string;
 }
 
+export const metadata = {
+  title: "Preview your image",
+  description: "Image upload preview",
+};
+
 async function loadImage(assetId: string): Promise<string | undefined> {
   const request = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/image?assetId=${assetId}`
