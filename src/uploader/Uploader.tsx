@@ -104,7 +104,7 @@ export const Uploader = () => {
           </div>
         </div>
       </section>
-      <ToastContainer theme="dark" position="bottom-center" />
+      <ToastContainer theme="dark" position="bottom-left" />
     </>
   );
 };
