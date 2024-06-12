@@ -81,15 +81,17 @@ export const Uploader = () => {
   return (
     <>
       <section
-        className={`mx-4 w-full md:w-[540px] h-[400px] p-3 rounded-lg shadow-lg ${
-          isDragActive
-            ? "bg-slate-100 dark:bg-slate-800"
-            : "bg-cc-white dark:bg-cc-midnight-blue"
-        }`}
-        {...getRootProps()}
+        className={`mx-4 w-full bg-cc-white dark:bg-cc-midnight-blue md:w-[540px] h-[400px] p-3 rounded-lg shadow-lg`}
       >
-        <input {...getInputProps()} />
-        <div className="border-2 dark:border-cc-outer-space-light border-dashed h-full rounded-lg flex justify-center items-center flex-col gap-5">
+        <div
+          className={`border-2 dark:border-cc-outer-space-light border-dashed h-full rounded-lg flex justify-center items-center flex-col gap-5 ${
+            isDragActive
+              ? "bg-slate-100 dark:bg-slate-800"
+              : "bg-cc-white dark:bg-cc-midnight-blue"
+          }`}
+          {...getRootProps()}
+        >
+          <input {...getInputProps()} />
           <Exit />
           <div className="text-center">
             <p className="dark:text-cc-white">
