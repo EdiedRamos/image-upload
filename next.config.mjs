@@ -1,10 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    serverActions: {
-      allowedOrigins: "https://image-upload-azure.vercel.app/",
-    },
-  },
-};
+const nextConfig = {};
 
 export default nextConfig;

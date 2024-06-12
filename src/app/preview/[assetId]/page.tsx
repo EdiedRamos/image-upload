@@ -19,26 +19,20 @@ export const metadata = {
 };
 
 async function loadImage(assetId: string): Promise<string | undefined> {
-  console.log("ASSET ID", assetId);
   try {
     const request = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/image?assetId=${assetId}`
     );
-    console.log("REQUEST STATUS", request);
     if (!request.ok) return undefined;
     const data = (await request.json()) as ImageResponse;
-    console.log("loadImage success", data);
     return data.image;
   } catch (error) {
-    console.log("LoadImageError:", error);
     return undefined;
   }
 }
 
 const ImagePreview = async ({ params }: Props) => {
   const image = await loadImage(params.assetId);
-
-  console.log("IMAGE PREVIEW", image);
 
   if (!image) notFound();
 
